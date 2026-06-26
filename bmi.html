@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AESTHETIC EDGE | BMI Calculator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ffb4ab",
+                        "primary": "#4be277",
+                        "on-background": "#dce5d9",
+                        "outline": "#869585",
+                        "on-tertiary-container": "#3e3f47",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-primary-container": "#004b1e",
+                        "surface-container-high": "#242c24",
+                        "tertiary-fixed": "#e2e1eb",
+                        "on-primary-fixed": "#002109",
+                        "on-secondary": "#2f3131",
+                        "tertiary-fixed-dim": "#c6c6cf",
+                        "surface": "#0e150e",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#b4b5b5",
+                        "inverse-surface": "#dce5d9",
+                        "tertiary-container": "#ababb4",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-dim": "#0e150e",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "surface-tint": "#4ae176",
+                        "on-surface": "#dce5d9",
+                        "on-primary": "#003915",
+                        "surface-container": "#1a221a",
+                        "on-surface-variant": "#bccbb9",
+                        "background": "#0e150e",
+                        "surface-container-highest": "#2f372e",
+                        "on-tertiary-fixed": "#1a1b22",
+                        "outline-variant": "#3d4a3d",
+                        "surface-container-low": "#161d16",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#4ae176",
+                        "surface-bright": "#333b33",
+                        "on-tertiary": "#2f3037",
+                        "on-tertiary-fixed-variant": "#45464e",
+                        "inverse-primary": "#006e2f",
+                        "primary-container": "#22c55e",
+                        "secondary": "#c6c6c7",
+                        "secondary-container": "#454747",
+                        "tertiary": "#c7c6d0",
+                        "on-primary-fixed-variant": "#005321",
+                        "primary-fixed": "#6bff8f",
+                        "surface-container-lowest": "#091009",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-variant": "#2f372e",
+                        "inverse-on-surface": "#2a322a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "grid-gutter": "20px",
+                        "container-padding": "24px",
+                        "stack-gap": "16px",
+                        "base": "8px",
+                        "section-gap": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Geist"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-xl": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "display-xl-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-xl": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-xl-mobile": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(24, 24, 24, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .emerald-glow {
+            filter: drop-shadow(0 0 15px rgba(75, 226, 119, 0.2));
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .active-ring {
+            stroke-dasharray: 691;
+            stroke-dashoffset: 691;
+            transition: stroke-dashoffset 1s ease-out;
+        }
+        #btn-male.selected, #btn-female.selected {
+            border-color: rgba(75, 226, 119, 0.6);
+            background: rgba(75, 226, 119, 0.08);
+        }
+        #btn-male.selected span, #btn-female.selected span {
+            color: #4be277;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center w-full">
+<a class="text-headline-md font-headline-md font-extrabold tracking-tighter text-on-surface" href="index.html">AESTHETIC EDGE</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="index.html">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="journey.html">Journey</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="ebook.html">eBook</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-sm font-label-sm" href="#">BMI</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform text-label-sm font-label-sm">
+                Get Started
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 max-w-7xl mx-auto relative min-h-screen">
+<header class="relative z-10 mb-16">
+<h1 class="text-display-xl-mobile md:text-display-xl font-headline-lg text-primary tracking-tight">Precision Metrics</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mt-4">Calculate your Body Mass Index with professional-grade accuracy. Our algorithm considers metabolic variance for high-performance athletes.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
+<!-- Input Form Section -->
+<section class="lg:col-span-5 space-y-6">
+<div class="glass-card p-8 rounded-[24px]">
+<h3 class="text-headline-md mb-8">Personal Parameters</h3>
+<div class="space-y-8">
+<!-- Gender Selection -->
+<div class="flex gap-4">
+<button class="flex-1 py-4 rounded-xl border border-white/10 hover:border-primary/50 transition-all flex flex-col items-center gap-2 group" id="btn-male" onclick="setGender('male')">
+<span class="material-symbols-outlined text-3xl group-hover:text-primary transition-colors">male</span>
+<span class="text-label-sm uppercase tracking-widest opacity-60">Male</span>
+</button>
+<button class="flex-1 py-4 rounded-xl border border-white/10 hover:border-primary/50 transition-all flex flex-col items-center gap-2 group" id="btn-female" onclick="setGender('female')">
+<span class="material-symbols-outlined text-3xl group-hover:text-primary transition-colors">female</span>
+<span class="text-label-sm uppercase tracking-widest opacity-60">Female</span>
+</button>
+</div>
+<!-- Numeric Inputs -->
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-label-sm uppercase tracking-widest text-on-surface-variant">Weight (kg)</label>
+<input class="w-full bg-white/5 border-0 border-b border-white/20 focus:ring-0 focus:border-primary text-headline-md font-bold px-0 py-2 transition-all" id="weight" type="number" value="75"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm uppercase tracking-widest text-on-surface-variant">Height (cm)</label>
+<input class="w-full bg-white/5 border-0 border-b border-white/20 focus:ring-0 focus:border-primary text-headline-md font-bold px-0 py-2 transition-all" id="height" type="number" value="180"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm uppercase tracking-widest text-on-surface-variant">Age</label>
+<input class="w-full bg-white/5 border-0 border-b border-white/20 focus:ring-0 focus:border-primary text-headline-md font-bold px-0 py-2 transition-all" id="age" type="number" value="28"/>
+</div>
+<button class="w-full py-5 bg-primary text-on-primary font-bold rounded-full text-lg shadow-xl emerald-glow active:scale-95 transition-all" onclick="calculateBMI()">
+                            Analyze Composition
+                        </button>
+</div>
+</div>
+<!-- Athlete Note -->
+<div class="glass-card p-6 rounded-[24px] border-l-4 border-primary">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+<div class="space-y-1">
+<h4 class="font-bold text-on-surface">Athlete Consideration</h4>
+<p class="text-label-sm text-on-surface-variant leading-relaxed">BMI is a screening tool, not a diagnostic. For professional athletes with high muscle density, traditional BMI may overestimate body fat percentage. Focus on visual metrics and performance levels.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Results Section -->
+<section class="lg:col-span-7">
+<div class="glass-card p-8 md:p-12 rounded-[32px] h-full flex flex-col justify-center items-center text-center relative overflow-hidden">
+<!-- Progress Ring Background Decoration -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
+<div class="space-y-6" id="results-placeholder">
+<span class="material-symbols-outlined text-7xl text-white/10">monitoring</span>
+<h3 class="text-headline-lg font-headline-lg">Analysis Pending</h3>
+<p class="text-on-surface-variant max-w-sm">Enter your metrics to reveal your performance composition and categorization.</p>
+</div>
+<div class="hidden w-full space-y-10" id="results-display">
+<div class="relative inline-flex items-center justify-center">
+<svg class="w-64 h-64 transform -rotate-90">
+<circle class="text-white/5" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary active-ring" cx="128" cy="128" fill="transparent" id="bmi-ring" r="110" stroke="currentColor" stroke-dasharray="691" stroke-dashoffset="691" stroke-linecap="round" stroke-width="14"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-label-sm uppercase tracking-[0.3em] text-on-surface-variant mb-1">Your BMI</span>
+<span class="text-7xl font-extrabold tracking-tighter text-on-surface" id="bmi-value">24.5</span>
+</div>
+</div>
+<div class="space-y-2">
+<h4 class="text-headline-lg text-primary uppercase tracking-widest font-bold" id="bmi-category">Optimal</h4>
+<p class="text-body-lg text-on-surface-variant" id="bmi-message">Your current composition reflects a disciplined physiological state.</p>
+</div>
+<div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden flex">
+<div class="h-full bg-blue-500 w-[18.5%] border-r border-background" title="Underweight"></div>
+<div class="h-full bg-primary w-[25%] border-r border-background" title="Normal"></div>
+<div class="h-full bg-yellow-500 w-[15%] border-r border-background" title="Overweight"></div>
+<div class="h-full bg-red-500 flex-1" title="Obese"></div>
+</div>
+<div class="flex justify-between text-[10px] uppercase tracking-widest opacity-40 px-2">
+<span>18.5</span>
+<span>25.0</span>
+<span>30.0</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Next Steps Section -->
+<section class="mt-section-gap grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+<a class="group glass-card p-10 rounded-[24px] flex justify-between items-center hover:bg-primary/5 transition-all" href="ebook.html">
+<div class="space-y-2">
+<h5 class="text-headline-md group-hover:text-primary transition-colors">Precision Nutrition</h5>
+<p class="text-on-surface-variant">Custom macro profiles based on your BMI profile.</p>
+</div>
+<span class="material-symbols-outlined text-4xl opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all">menu_book</span>
+</a>
+<a class="group glass-card p-10 rounded-[24px] flex justify-between items-center hover:bg-primary/5 transition-all" href="#">
+<div class="space-y-2">
+<h5 class="text-headline-md group-hover:text-primary transition-colors">TDEE Calculator</h5>
+<p class="text-on-surface-variant">Determine your exact caloric maintenance baseline.</p>
+</div>
+<span class="material-symbols-outlined text-4xl opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all">calculate</span>
+</a>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-white/5 w-full">
+<div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface">AESTHETIC EDGE</span>
+<p class="mt-4 text-on-surface-variant text-label-sm font-label-sm leading-relaxed">Defining the nexus of luxury aesthetics and physiological excellence.</p>
+</div>
+<div class="space-y-4">
+<h6 class="text-on-surface font-bold text-label-sm uppercase tracking-widest">Resources</h6>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Training Programs</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Supplement Guide</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Client Portal</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h6 class="text-on-surface font-bold text-label-sm uppercase tracking-widest">Company</h6>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Affiliate Program</a></li>
+</ul>
+</div>
+<div class="space-y-4 text-right">
+<h6 class="text-on-surface font-bold text-label-sm uppercase tracking-widest">Connect</h6>
+<div class="flex justify-end gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">public</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">share</span>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 py-8 border-t border-white/5 text-center">
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">© 2024 AESTHETIC EDGE PERFORMANCE. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+
+<script>
+        let selectedGender = 'male';
+
+        function setGender(gender) {
+            selectedGender = gender;
+            const male = document.getElementById('btn-male');
+            const female = document.getElementById('btn-female');
+            male.classList.remove('selected');
+            female.classList.remove('selected');
+            if (gender === 'male') {
+                male.classList.add('selected');
+            } else {
+                female.classList.add('selected');
+            }
+        }
+
+        // Set default gender on load
+        setGender('male');
+
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100;
+            const age = parseInt(document.getElementById('age').value);
+
+            if (!weight || !height || !age || height <= 0) return;
+
+            const bmi = weight / (height * height);
+            const bmiRounded = bmi.toFixed(1);
+
+            // Determine category
+            let category, message, color;
+            if (bmi < 18.5) {
+                category = 'Underweight';
+                message = 'Consider increasing caloric intake with quality whole foods to support muscle building.';
+                color = '#60a5fa';
+            } else if (bmi < 25) {
+                category = 'Optimal Range';
+                message = 'Your current composition reflects a disciplined physiological state. Ideal for performance.';
+                color = '#4be277';
+            } else if (bmi < 30) {
+                category = 'Overweight';
+                message = 'A caloric deficit combined with progressive training can help achieve optimal aesthetics.';
+                color = '#eab308';
+            } else {
+                category = 'High BMI';
+                message = 'Focus on a structured nutrition protocol. Consult a professional for personalized guidance.';
+                color = '#ef4444';
+            }
+
+            // Update UI
+            document.getElementById('bmi-value').textContent = bmiRounded;
+            document.getElementById('bmi-category').textContent = category;
+            document.getElementById('bmi-category').style.color = color;
+            document.getElementById('bmi-message').textContent = message;
+
+            // Animate the ring
+            // Map BMI 10–40 to ring offset
+            const maxBMI = 40, minBMI = 10;
+            const circumference = 691;
+            const clampedBMI = Math.max(minBMI, Math.min(maxBMI, bmi));
+            const progress = (clampedBMI - minBMI) / (maxBMI - minBMI);
+            const offset = circumference - (progress * circumference);
+
+            const ring = document.getElementById('bmi-ring');
+            ring.style.stroke = color;
+            ring.style.strokeDashoffset = circumference; // reset
+            setTimeout(() => {
+                ring.style.strokeDashoffset = offset;
+            }, 50);
+
+            // Show results
+            document.getElementById('results-placeholder').classList.add('hidden');
+            document.getElementById('results-display').classList.remove('hidden');
+        }
+    </script>
+</body></html>
