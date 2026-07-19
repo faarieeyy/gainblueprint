@@ -126,9 +126,48 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #4be277;
         }
-    </style>
+    
+        @keyframes wipe-reveal {
+            0% {
+                clip-path: inset(0 100% 0 0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                clip-path: inset(0 0 0 0);
+                opacity: 1;
+            }
+        }
+        
+        .animate-wipe {
+            animation: wipe-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            opacity: 0;
+        }
+</style>
 </head>
 <body class="font-body-md selection:bg-primary selection:text-on-primary">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-surface flex items-center justify-center transition-opacity duration-1000">
+        <h1 class="text-on-surface font-display-xl font-black text-5xl md:text-7xl tracking-tighter uppercase animate-wipe">
+            <span class="text-primary">GAIN</span> BLUEPRINT
+        </h1>
+    </div>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 1000);
+                }
+            }, 1800);
+        });
+    </script>
+
 <!-- TopNavBar -->
 <header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-2xl">
 <nav class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
