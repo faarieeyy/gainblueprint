@@ -1,0 +1,17 @@
+[
+  { "id": 1, "title": "The Aesthetic Foundation", "pages": 14 },
+  { "id": 2, "title": "Metabolic Priming Protocols", "pages": 12 },
+  { "id": 3, "title": "Volume vs. Intensity: The Balance", "pages": 18 },
+  { "id": 4, "title": "The Progressive Overload Matrix", "pages": 22 },
+  { "id": 5, "title": "Functional Aesthetics for Life", "pages": 15 },
+  { "id": 6, "title": "Nutrition Fundamentals", "pages": 20 },
+  { "id": 7, "title": "Macro Manipulation", "pages": 18 },
+  { "id": 8, "title": "Supplement Science", "pages": 12 },
+  { "id": 9, "title": "Recovery & Sleep", "pages": 10 },
+  { "id": 10, "title": "Diet Plans (Fat Loss)", "pages": 15 },
+  { "id": 11, "title": "Diet Plans (Lean Bulk)", "pages": 15 },
+  { "id": 12, "title": "High-Calorie Shake Recipes", "pages": 8 },
+  { "id": 13, "title": "Grocery List", "pages": 5 },
+  { "id": 14, "title": "FAQs & Common Mistakes", "pages": 10 },
+  { "id": 15, "title": "Final Thoughts & Consistency", "pages": 5 }
+]

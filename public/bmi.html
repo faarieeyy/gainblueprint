@@ -136,9 +136,24 @@
 <a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-sm font-label-sm" href="#">BMI</a>
 <a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Contact</a>
 </div>
-<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform text-label-sm font-label-sm">
+<div class="flex items-center gap-4">
+<button class="hidden md:block bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform text-label-sm font-label-sm">
                 Get Started
             </button>
+<button id="mobile-menu-btn" class="md:hidden text-on-surface p-2 flex items-center justify-center">
+    <span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+<div id="mobile-menu" class="hidden md:hidden bg-surface-container-highest border-b border-white/10 w-full flex-col px-6 py-6 gap-6 shadow-2xl absolute top-full left-0">
+    <a href="index.html" class="text-on-surface-variant font-medium text-lg block">Home</a>
+    <a href="journey.html" class="text-on-surface-variant font-medium text-lg block">Journey</a>
+    <a href="ebook.html" class="text-on-surface-variant font-medium text-lg block">eBook</a>
+    <a href="#" class="text-primary font-bold text-lg block">BMI</a>
+    <a href="contact.html" class="text-on-surface-variant font-medium text-lg block">Contact</a>
+    <button class="bg-primary text-on-primary-container px-6 py-3 mt-2 rounded-full font-headline-md font-bold text-label-sm w-full">
+        Get Started
+    </button>
 </div>
 </nav>
 <main class="pt-32 pb-24 px-6 max-w-7xl mx-auto relative min-h-screen">
@@ -254,7 +269,7 @@
 </main>
 <!-- Footer -->
 <footer class="bg-surface-container-lowest border-t border-white/5 w-full">
-<div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="max-w-7xl mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
 <div class="col-span-1 md:col-span-1">
 <span class="text-headline-sm font-headline-sm font-bold text-on-surface uppercase">GAIN BLUEPRINT</span>
 <p class="mt-4 text-on-surface-variant text-label-sm font-label-sm leading-relaxed">Defining the nexus of luxury aesthetics and physiological excellence.</p>
@@ -363,4 +378,21 @@
             document.getElementById('results-display').classList.remove('hidden');
         }
     </script>
+<script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                this.innerHTML = '<span class="material-symbols-outlined">close</span>';
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                this.innerHTML = '<span class="material-symbols-outlined">menu</span>';
+            }
+        });
+    }
+</script>
 </body></html>

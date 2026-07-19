@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <style>
         @import url('https://fonts.cdnfonts.com/css/geist');
         
@@ -206,16 +207,31 @@
 <a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="journey.html">Journey</a>
 <a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="ebook.html">eBook</a>
 <a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="bmi.html">BMI</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Contact</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="contact.html">Contact</a>
 </div>
-<button class="bg-primary text-on-primary-container px-6 py-2.5 rounded-full font-headline-md font-bold text-label-sm hover:scale-95 transition-transform active:scale-90">
+<div class="flex items-center gap-4">
+<button class="hidden md:block bg-primary text-on-primary-container px-6 py-2.5 rounded-full font-headline-md font-bold text-label-sm hover:scale-95 transition-transform active:scale-90">
                 Get Started
             </button>
+<button id="mobile-menu-btn" class="md:hidden text-on-surface p-2 flex items-center justify-center">
+    <span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+<div id="mobile-menu" class="hidden md:hidden bg-surface-container-highest border-b border-white/10 w-full flex-col px-6 py-6 gap-6 shadow-2xl absolute top-full left-0">
+    <a href="#" class="text-primary font-bold text-lg block">Home</a>
+    <a href="journey.html" class="text-on-surface-variant font-medium text-lg block">Journey</a>
+    <a href="ebook.html" class="text-on-surface-variant font-medium text-lg block">eBook</a>
+    <a href="bmi.html" class="text-on-surface-variant font-medium text-lg block">BMI</a>
+    <a href="contact.html" class="text-on-surface-variant font-medium text-lg block">Contact</a>
+    <button class="bg-primary text-on-primary-container px-6 py-3 mt-2 rounded-full font-headline-md font-bold text-label-sm w-full">
+        Get Started
+    </button>
 </div>
 </nav>
 <main class="relative">
 <!-- Hero Section -->
-<section class="min-h-screen flex items-center justify-center pt-24 px-6 hero-gradient relative overflow-hidden">
+<section class="min-h-screen flex items-center justify-center pt-16 md:pt-24 px-6 hero-gradient relative overflow-hidden">
 <div class="absolute inset-0 z-0">
 <img class="w-full h-full object-cover opacity-70 transition-all duration-1000" src="./assets/images/hero-bg.jpg" alt="Gym equipment and protein shaker representing natural performance"/>
 <div class="absolute inset-0 bg-gradient-to-b from-background/70 via-background/30 to-background/90"></div>
@@ -224,7 +240,7 @@
 <div class="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10 pt-10">
 <div class="reveal flex flex-col items-center">
 <span class="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-primary font-label-sm text-label-sm mb-6 uppercase tracking-widest backdrop-blur-md">Natural Performance Unleashed</span>
-<h1 class="font-display-xl text-display-xl lg:text-[110px] lg:leading-[110px] mb-8 text-white tracking-tighter drop-shadow-2xl">
+<h1 class="font-display-xl text-5xl md:text-display-xl lg:text-[110px] lg:leading-[110px] mb-8 text-white tracking-tighter drop-shadow-2xl">
                         Build Muscle.
 </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl leading-relaxed drop-shadow-xl text-lg">
@@ -254,7 +270,7 @@
 </section>
 
 <!-- Text Animation Gap -->
-<div class="py-16 bg-surface-container-lowest overflow-hidden flex items-center relative border-y border-white/5">
+<div class="py-8 md:py-16 bg-surface-container-lowest overflow-hidden flex items-center relative border-y border-white/5">
     <!-- Single Row Marquee -->
     <div class="flex whitespace-nowrap animate-marquee-left w-max">
         <div class="flex items-center gap-16 px-8">
@@ -289,35 +305,44 @@
 </div>
 
 <!-- My Journey Section -->
-<section class="py-section-gap px-6 bg-surface-container-lowest">
+<section class="py-12 md:py-section-gap px-6 bg-surface-container-lowest">
 <div class="max-w-7xl mx-auto">
 <div class="text-center mb-16 reveal">
 <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">The Evolution of Excellence</h2>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">A testament to what is possible when discipline meets data. No shortcuts, just natural progression.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+<!-- Mobile Swiper / Desktop Grid -->
+<div class="swiper journey-swiper !pb-12 md:!pb-0">
+<div class="swiper-wrapper md:!grid md:grid-cols-4 md:gap-4 md:transform-none">
 <!-- Timeline Items -->
-<div class="glass-card reveal relative overflow-hidden group aspect-[3/4]" style="transition-delay: 100ms">
+<div class="swiper-slide md:!w-auto !w-[65%]">
+<div class="glass-card reveal relative overflow-hidden group aspect-[4/5] md:aspect-[3/4]" style="transition-delay: 100ms">
 <img class="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="./assets/images/year2-image.jpg" alt="Year 0" />
 <div class="absolute top-0 left-0 w-full p-8 bg-gradient-to-b from-black/80 via-black/40 to-transparent z-10">
 <span class="text-primary font-bold text-headline-md block drop-shadow-md">DAY 1</span>
 </div>
 </div>
-<div class="glass-card mt-12 reveal relative overflow-hidden group aspect-[3/4]" style="transition-delay: 200ms">
+</div>
+<div class="swiper-slide md:!w-auto !w-[65%]">
+<div class="glass-card md:mt-12 reveal relative overflow-hidden group aspect-[4/5] md:aspect-[3/4]" style="transition-delay: 200ms">
 <img class="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="./assets/images/year2-new-image.jpg" alt="2nd Month" />
 <div class="absolute top-0 left-0 w-full p-8 bg-gradient-to-b from-black/80 via-black/40 to-transparent z-10">
 <span class="text-primary font-bold text-xl block mb-1 drop-shadow-md tracking-wide">2ND</span>
 <span class="text-primary font-bold text-headline-md block drop-shadow-md">MONTH</span>
 </div>
 </div>
-<div class="glass-card reveal relative overflow-hidden group aspect-[3/4]" style="transition-delay: 300ms">
+</div>
+<div class="swiper-slide md:!w-auto !w-[65%]">
+<div class="glass-card reveal relative overflow-hidden group aspect-[4/5] md:aspect-[3/4]" style="transition-delay: 300ms">
 <img class="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="./assets/images/year4-image.jpg" alt="5th Month" />
 <div class="absolute top-0 left-0 w-full p-8 bg-gradient-to-b from-black/80 via-black/40 to-transparent z-10">
 <span class="text-primary font-bold text-xl block mb-1 drop-shadow-md tracking-wide">5TH</span>
 <span class="text-primary font-bold text-headline-md block drop-shadow-md">MONTH</span>
 </div>
 </div>
-<div class="glass-card mt-12 reveal relative overflow-hidden group aspect-[3/4]" style="transition-delay: 400ms">
+</div>
+<div class="swiper-slide md:!w-auto !w-[65%]">
+<div class="glass-card md:mt-12 reveal relative overflow-hidden group aspect-[4/5] md:aspect-[3/4]" style="transition-delay: 400ms">
 <img class="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="./assets/images/today-image.jpg" alt="Today" />
 <div class="absolute top-0 left-0 w-full p-8 bg-gradient-to-b from-black/80 via-black/40 to-transparent z-10">
 <span class="text-primary font-bold text-sm block mb-1 drop-shadow-md tracking-wide">7TH MONTH</span>
@@ -326,13 +351,15 @@
 </div>
 </div>
 </div>
+</div>
+</div>
 </section>
 <!-- About eBook (Feature Grid) -->
-<section class="py-section-gap px-6 relative">
+<section class="py-12 md:py-section-gap px-6 relative">
 <div class="max-w-7xl mx-auto">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
 <div class="reveal">
-<h2 class="font-display-xl text-headline-lg lg:text-display-xl text-on-surface mb-8">Inside the <span class="text-primary">Performance Blueprint</span></h2>
+<h2 class="font-display-xl text-4xl md:text-headline-lg lg:text-display-xl text-on-surface mb-8">Inside the <span class="text-primary">Performance Blueprint</span></h2>
 <div class="w-full text-on-surface-variant">
     <div>
         <ul class="space-y-1 text-body-md list-disc list-outside marker:text-primary pl-6">
@@ -376,89 +403,7 @@
 </div>
 </div>
 </section>
-<!-- Diet Plans & CTA Section -->
-<section class="py-section-gap px-6 bg-surface-container-low overflow-hidden">
-<div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 xl:grid-cols-2 gap-16 xl:gap-24 items-center">
-        <!-- Left: Diet Plans -->
-        <div>
-            <div class="text-left mb-12 reveal">
-                <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Precision Calorie Targets</h2>
-                <p class="font-body-md text-body-md text-on-surface-variant">Select your blueprint based on your current metabolism and performance goals.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- 1800 kcal -->
-                <div class="glass-card p-4 group hover:border-primary/50 transition-all reveal" style="transition-delay: 100ms">
-                    <div class="mb-3">
-                        <span class="text-primary font-bold text-3xl block">1800</span>
-                        <span class="text-on-surface-variant text-[9px] uppercase tracking-widest">Kcal / Day</span>
-                    </div>
-                    <h4 class="font-headline-md text-base text-on-surface mb-2">Lean Maintenance</h4>
-                    <ul class="space-y-1.5 mb-4 text-on-surface-variant text-xs">
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Aggressive Cut</li>
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> High Saturation</li>
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Metabolism Reset</li>
-                    </ul>
-                    <button class="w-full py-1.5 px-3 text-xs rounded-full border border-white/10 text-on-surface font-bold hover:bg-primary hover:text-on-primary-container transition-all">View Plan</button>
-                </div>
-                <!-- 2200 kcal -->
-                <div class="glass-card p-4 group hover:border-primary/50 transition-all reveal" style="transition-delay: 200ms">
-                    <div class="mb-3">
-                        <span class="text-primary font-bold text-3xl block">2200</span>
-                        <span class="text-on-surface-variant text-[9px] uppercase tracking-widest">Kcal / Day</span>
-                    </div>
-                    <h4 class="font-headline-md text-base text-on-surface mb-2">The Shredder</h4>
-                    <ul class="space-y-1.5 mb-4 text-on-surface-variant text-xs">
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Fat Oxidation</li>
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Muscle Sparing</li>
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Daily Activity Focus</li>
-                    </ul>
-                    <button class="w-full py-1.5 px-3 text-xs rounded-full border border-white/10 text-on-surface font-bold hover:bg-primary hover:text-on-primary-container transition-all">View Plan</button>
-                </div>
-                <!-- 2700 kcal -->
-                <div class="glass-card p-4 group border-primary/30 shadow-[0_0_40px_rgba(75,226,119,0.1)] reveal" style="transition-delay: 300ms">
-                    <div class="mb-3">
-                        <span class="text-primary font-bold text-3xl block">2700</span>
-                        <span class="text-on-surface-variant text-[9px] uppercase tracking-widest">Kcal / Day</span>
-                    </div>
-                    <h4 class="font-headline-md text-base text-on-surface mb-2">Lean Bulk</h4>
-                    <ul class="space-y-1.5 mb-4 text-on-surface-variant text-xs">
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Performance Peak</li>
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Tissue Growth</li>
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Optimal Recovery</li>
-                    </ul>
-                    <button class="w-full py-1.5 px-3 text-xs rounded-full bg-primary text-on-primary-container font-bold hover:shadow-[0_0_20px_rgba(75,226,119,0.4)] transition-all">Most Popular</button>
-                </div>
-                <!-- 3000 kcal -->
-                <div class="glass-card p-4 group hover:border-primary/50 transition-all reveal" style="transition-delay: 400ms">
-                    <div class="mb-3">
-                        <span class="text-primary font-bold text-3xl block">3000</span>
-                        <span class="text-on-surface-variant text-[9px] uppercase tracking-widest">Kcal / Day</span>
-                    </div>
-                    <h4 class="font-headline-md text-base text-on-surface mb-2">Mass Monster</h4>
-                    <ul class="space-y-1.5 mb-4 text-on-surface-variant text-xs">
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> High Volume Ready</li>
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Surplus Mastery</li>
-                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Strength Priority</li>
-                    </ul>
-                    <button class="w-full py-1.5 px-3 text-xs rounded-full border border-white/10 text-on-surface font-bold hover:bg-primary hover:text-on-primary-container transition-all">View Plan</button>
-                </div>
-            </div>
-        </div>
 
-        <!-- Right: CTA Section -->
-        <div class="text-left relative z-10 reveal">
-            <h2 class="font-headline-lg text-headline-lg lg:text-5xl text-on-surface mb-6">Ready to define your own edge?</h2>
-            <p class="font-body-md text-body-md text-on-surface-variant mb-10">Join thousands of natural athletes who have transformed their physique through scientific nutrition and disciplined performance training.</p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-start">
-<button class="bg-primary text-on-primary-container px-10 py-5 rounded-full font-bold text-headline-md hover:shadow-[0_0_40px_rgba(75,226,119,0.3)] transition-all scale-105 active:scale-95">
-                        Download the Full Blueprint
-                    </button>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
 </main>
 <!-- Footer Shell -->
 <footer class="bg-surface-container-lowest border-t border-white/5">
@@ -529,4 +474,62 @@
         });
     </script>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    let journeySwiper = null;
+    function initJourneySwiper() {
+        if (window.innerWidth < 768) {
+            if (!journeySwiper) {
+                journeySwiper = new Swiper('.journey-swiper', {
+                    effect: 'coverflow',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: 'auto',
+                    initialSlide: 0,
+                    loop: true,
+                    slideToClickedSlide: true,
+                    coverflowEffect: {
+                        rotate: 30,
+                        stretch: 0,
+                        depth: 150,
+                        modifier: 1.5,
+                        slideShadows: false,
+                    },
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    }
+                });
+            }
+        } else {
+            if (journeySwiper) {
+                journeySwiper.destroy(true, true);
+                journeySwiper = null;
+            }
+        }
+    }
+    window.addEventListener('resize', initJourneySwiper);
+    window.addEventListener('DOMContentLoaded', initJourneySwiper);
+</script>
+<script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                this.innerHTML = '<span class="material-symbols-outlined">close</span>';
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                this.innerHTML = '<span class="material-symbols-outlined">menu</span>';
+            }
+        });
+    }
+</script>
 </body></html>

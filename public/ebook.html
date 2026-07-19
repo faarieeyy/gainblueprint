@@ -3,7 +3,7 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lean Gain Blueprint | GAIN BLUEPRINT</title>
+<title>Gain Blueprint | GAIN BLUEPRINT</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -140,83 +140,62 @@
 <a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="journey.html">Journey</a>
 <a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-sm font-label-sm" href="#">eBook</a>
 <a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="bmi.html">BMI</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Contact</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors text-label-sm font-label-sm" href="contact.html">Contact</a>
 </div>
-<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold hover:scale-95 transition-transform text-label-sm font-label-sm">
+<div class="flex items-center gap-4">
+<button onclick="openBuyModal()" class="hidden md:block bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold hover:scale-95 transition-transform text-label-sm font-label-sm">
                 Get Started
             </button>
+<button id="mobile-menu-btn" class="md:hidden text-on-surface p-2 flex items-center justify-center">
+    <span class="material-symbols-outlined">menu</span>
+</button>
+</div>
 </nav>
+<div id="mobile-menu" class="hidden md:hidden bg-surface-container-highest border-b border-white/10 w-full flex-col px-6 py-6 gap-6 shadow-2xl absolute top-full left-0">
+    <a href="index.html" class="text-on-surface-variant font-medium text-lg block">Home</a>
+    <a href="journey.html" class="text-on-surface-variant font-medium text-lg block">Journey</a>
+    <a href="#" class="text-primary font-bold text-lg block">eBook</a>
+    <a href="bmi.html" class="text-on-surface-variant font-medium text-lg block">BMI</a>
+    <a href="contact.html" class="text-on-surface-variant font-medium text-lg block">Contact</a>
+    <button onclick="openBuyModal()" class="bg-primary text-on-primary-container px-6 py-3 mt-2 rounded-full font-headline-md font-bold text-label-sm w-full">
+        Get Started
+    </button>
+</div>
 </header>
 <main class="pt-32">
 <!-- Hero Section -->
-<section class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-section-gap">
-<div class="order-2 lg:order-1">
-<div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full mb-6">
-<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-<span class="text-label-sm font-label-sm text-on-surface-variant tracking-wider uppercase">Best Seller 2024</span>
+<section class="relative min-h-[92vh] flex items-center justify-start overflow-hidden -mt-32">
+<div class="absolute inset-0 z-0">
+    <!-- Strong dark-to-transparent gradient on the left so text is readable, image shows clearly on right -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0e150e] from-30% via-[#0e150e]/70 via-55% to-transparent z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0e150e]/40 via-transparent to-[#0e150e] z-10"></div>
+    <img class="w-full h-full object-cover object-center" alt="Gain Blueprint background" src="./assets/images/ebook-bg.jpg"/>
 </div>
-<h1 class="text-display-xl-mobile md:text-display-xl font-display-xl mb-6 leading-tight">
-                    Lean Gain <span class="text-primary">Blueprint</span>
-</h1>
-<p class="text-body-lg font-body-lg text-on-surface-variant mb-8 max-w-lg">
-                    The ultimate professional guide to building high-density muscle mass while maintaining a razor-sharp aesthetic. Scientifically structured for peak natural performance.
-                </p>
-<div class="flex flex-wrap gap-4 mb-10">
-<div class="flex items-center gap-3 bg-surface-container rounded-xl p-4 border border-white/5">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
-<span class="text-label-sm font-label-sm font-bold">100+ PAGES</span>
-</div>
-<div class="flex items-center gap-3 bg-surface-container rounded-xl p-4 border border-white/5">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
-<span class="text-label-sm font-label-sm font-bold">HD PDF</span>
-</div>
-<div class="flex items-center gap-3 bg-surface-container rounded-xl p-4 border border-white/5">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">update</span>
-<span class="text-label-sm font-label-sm font-bold">LIFETIME UPDATES</span>
-</div>
-</div>
-<div class="flex flex-col sm:flex-row items-center gap-6">
-<button class="w-full sm:w-auto bg-primary text-on-primary px-10 py-5 rounded-full text-lg font-bold emerald-glow hover:scale-[0.98] transition-transform flex items-center justify-center gap-3">
-                        Buy Now — $49.99
-                        <span class="material-symbols-outlined">arrow_forward</span>
-</button>
-<div class="flex -space-x-3">
-<img class="w-10 h-10 rounded-full border-2 border-surface-container object-cover" alt="Fitness enthusiast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYXSu1h40hFoe9_3l6bSOTZz7MQOAqPBqvDhmzMBnRyOi9Bvyb52bVXNJlmwzdZm0H4Julb6WCauz4130W7cNNHGfds3gDVQyrawBoSq2_pL97pidALHU92OYtOUHdqVopg6wBMNtHWsFPANKJ7ZnW2xKE0KL4O6w8bor_OonS3cQIKJk_QSiVedSsIZp4b2YoeMZXNd34btjf6SR4jSiMqELJMjZ6bKFTKN8q0Cytu5rTxyZLfECi5JveG5s4daMzKqkK28rz0l0"/>
-<img class="w-10 h-10 rounded-full border-2 border-surface-container object-cover" alt="High performance athlete" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4dZxqYDyFIpiKPkC9Dmg6oL30bnwwLPW0fsQDe48Wqlpijj-00hzOP_CAfmCJNrrcNR82VrVI-aRMa4SFz7pUvh0dopONwWZckJJP2Ta8Ix9clcStGhNqhjDbGEPpfpD_UKoGWLr926vxQfpFDN6R1YMwhnycaINH377m7ArkHnKh0_pEJIaYPMoyv-e8PTl2ftmn0iBGqU79mm95rz6wJl_sjGrVorK8rkCfmHFsDHPa190-3yMFb-1FnXGvKhiR3f6sWdyGgOM"/>
-<img class="w-10 h-10 rounded-full border-2 border-surface-container object-cover" alt="Athletic trainer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi8cvJn6zhmvUApwR7COOThrZQ0wGfbCWbVcb3tWRLnuvLhwOa3V8mfGrZ2bumjdYKQdwo7gHkqa5z6uHHg9sfg2TX4IxdiGofNx5JUg4g-cIhmVsL-z5zlL_8remJbJdSO-pyy0lTjzDJSFBRHGT982VbaKeY8XMeHHBGWQGwaBR6dxEI_5Un7nx4fBbgFbG9v3O4-jDTPTrGGWf93L_LouDg8fIGy7aVXEEUton9SvNgiChsRCWVcjAqMzDhxxnDEhl2D3OGpAg"/>
-<div class="w-10 h-10 rounded-full border-2 border-surface-container bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">1k+</div>
-</div>
-<span class="text-label-sm font-label-sm text-on-surface-variant">Joined the gain</span>
-</div>
-</div>
-<div class="order-1 lg:order-2 relative group">
-<div class="absolute -inset-10 bg-primary/10 blur-[100px] rounded-full group-hover:bg-primary/20 transition-all duration-700"></div>
-<div class="relative glass-card aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl p-4">
-<div class="w-full h-full bg-surface-container-highest rounded-xl flex items-center justify-center relative overflow-hidden">
-<img class="w-full h-full object-cover" alt="Lean Gain Blueprint eBook mockup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADQTZmCo6cV8r0Nno2-IGun6c3g2t5Eim_LOrnCj5liYWdKiasHFZWHpq3AgDRK4_MKIdbJNmciZROlsxM7-qI4w-kDfifZsh6WVVgB_ZTAjIhnt4aXd6Ya-ga6MVgJqXdnufOWceipF5-KQ_ohwZ-IQ4kmMCsHyaQ8NtPufBUg4wOs1W0vFEc76pobu03lKGxG3hHAHkOybkMuiI1mEzPTFz58akzmcPhSIvfd1XQEpWkBziVXO5b8Yed6Gk3SRFYhndAPzlHGQY"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-<div class="absolute bottom-8 left-8 text-white">
-<h3 class="text-headline-md font-headline-md mb-1">GAIN BLUEPRINT</h3>
-<p class="text-label-sm opacity-60">Professional Series v2.0</p>
-</div>
-</div>
-</div>
-<!-- Floating Badge -->
-<div class="absolute -bottom-6 -right-6 glass-card p-6 rounded-2xl flex flex-col items-center">
-<span class="text-primary text-headline-lg font-headline-lg">4.9/5</span>
-<div class="flex gap-1 mb-1">
-<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="text-label-sm font-label-sm opacity-60 uppercase tracking-widest">Verified Reviews</span>
-</div>
+<div class="relative z-20 max-w-7xl mx-auto px-6 w-full pt-40 pb-24">
+    <div class="max-w-xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span class="text-label-sm font-label-sm tracking-wider uppercase text-white/80">Best Seller 2024</span>
+        </div>
+        <h1 class="text-display-xl-mobile md:text-display-xl font-display-xl mb-6 leading-tight text-white">
+            Gain <span class="text-primary">Blueprint</span>
+        </h1>
+        <p class="text-body-lg font-body-lg text-white/80 mb-8 max-w-md">
+            The ultimate professional guide to building high-density muscle mass while maintaining a razor-sharp aesthetic. Scientifically structured for peak natural performance.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <button onclick="openBuyModal()" class="w-full sm:w-auto bg-primary text-black px-10 py-5 rounded-full text-lg font-bold emerald-glow hover:scale-[0.98] transition-transform flex items-center justify-center gap-3">
+                Buy Now — ₹399
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+
+        </div>
+    </div>
 </div>
 </section>
 <!-- What's Included Grid -->
-<section class="max-w-7xl mx-auto px-6 py-section-gap">
+<section class="max-w-7xl mx-auto px-6 py-8 md:py-section-gap">
 <div class="text-center mb-16">
 <h2 class="text-headline-lg font-headline-lg mb-4">What's <span class="text-primary">Included</span></h2>
 <p class="text-on-surface-variant max-w-2xl mx-auto">A comprehensive system that leaves no stone unturned in your pursuit of a world-class physique.</p>
@@ -235,7 +214,7 @@
 <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-primary">restaurant</span>
 </div>
-<h3 class="text-headline-md font-headline-md mb-3">Lean Macro Manual</h3>
+<h3 class="text-headline-md font-headline-md mb-3">Macro Manual</h3>
 <p class="text-on-surface-variant font-body-md">Calculate your specific metabolic needs with our custom formulas designed for clean bulking without the fat.</p>
 </div>
 <!-- Card 3 -->
@@ -249,66 +228,91 @@
 </div>
 </section>
 <!-- Table of Contents & Feature Details -->
-<section class="bg-surface-container-low py-section-gap">
-<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-5 gap-16">
+<section class="bg-black relative py-16 md:py-section-gap overflow-hidden">
+<div class="absolute inset-0 z-0">
+    <div class="absolute -top-[500px] -right-[500px] w-[1000px] h-[1000px] bg-primary/5 blur-[120px] rounded-full"></div>
+    <div class="absolute -bottom-[500px] -left-[500px] w-[1000px] h-[1000px] bg-primary/5 blur-[120px] rounded-full"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
 <!-- Table of Contents -->
 <div class="lg:col-span-3">
-<h3 class="text-headline-lg font-headline-lg mb-10">Table of <span class="text-primary">Contents</span></h3>
-<div class="space-y-4">
-<div class="group flex items-center justify-between p-5 bg-white/5 rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer">
-<div class="flex items-center gap-6">
-<span class="text-primary font-bold opacity-40 chapter-num">01</span>
-<span class="text-body-lg font-bold">The Aesthetic Foundation</span>
-</div>
-<span class="text-on-surface-variant opacity-50 text-label-sm">Page 04</span>
-</div>
-<div class="group flex items-center justify-between p-5 bg-white/5 rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer">
-<div class="flex items-center gap-6">
-<span class="text-primary font-bold opacity-40 chapter-num">02</span>
-<span class="text-body-lg font-bold">Metabolic Priming Protocols</span>
-</div>
-<span class="text-on-surface-variant opacity-50 text-label-sm">Page 18</span>
-</div>
-<div class="group flex items-center justify-between p-5 bg-white/5 rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer">
-<div class="flex items-center gap-6">
-<span class="text-primary font-bold opacity-40 chapter-num">03</span>
-<span class="text-body-lg font-bold">Volume vs. Intensity: The Balance</span>
-</div>
-<span class="text-on-surface-variant opacity-50 text-label-sm">Page 32</span>
-</div>
-<div class="group flex items-center justify-between p-5 bg-white/5 rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer">
-<div class="flex items-center gap-6">
-<span class="text-primary font-bold opacity-40 chapter-num">04</span>
-<span class="text-body-lg font-bold">The Progressive Overload Matrix</span>
-</div>
-<span class="text-on-surface-variant opacity-50 text-label-sm">Page 55</span>
-</div>
-<div class="group flex items-center justify-between p-5 bg-white/5 rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer">
-<div class="flex items-center gap-6">
-<span class="text-primary font-bold opacity-40 chapter-num">05</span>
-<span class="text-body-lg font-bold">Functional Aesthetics for Life</span>
-</div>
-<span class="text-on-surface-variant opacity-50 text-label-sm">Page 89</span>
-</div>
+<h3 class="text-4xl md:text-5xl font-extrabold mb-10 text-white tracking-tight">Table of <span class="text-[#4ADE80]">Contents</span></h3>
+<div class="space-y-2.5">
+    <div class="flex items-center justify-between px-5 py-3.5 bg-[#1E2320] border border-primary/20 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-primary/40 transition-all cursor-pointer">
+        <div class="flex items-center gap-5">
+            <span class="text-[#4ADE80] font-bold text-base w-5">01</span>
+            <span class="text-white font-bold text-base">Welcome</span>
+        </div>
+        <span class="text-gray-400 text-xs">Page 02</span>
+    </div>
+    <div class="flex items-center justify-between px-5 py-3.5 bg-[#1E2320] border border-primary/20 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-primary/40 transition-all cursor-pointer">
+        <div class="flex items-center gap-5">
+            <span class="text-[#4ADE80] font-bold text-base w-5">02</span>
+            <span class="text-white font-bold text-base">Training Splits</span>
+        </div>
+        <span class="text-gray-400 text-xs">Page 02</span>
+    </div>
+    <div class="flex items-center justify-between px-5 py-3.5 bg-[#1E2320] border border-primary/20 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-primary/40 transition-all cursor-pointer">
+        <div class="flex items-center gap-5">
+            <span class="text-[#4ADE80] font-bold text-base w-5">03</span>
+            <span class="text-white font-bold text-base">Bro Split</span>
+        </div>
+        <span class="text-gray-400 text-xs">Page 02</span>
+    </div>
+    <div class="flex items-center justify-between px-5 py-3.5 bg-[#1E2320] border border-primary/20 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-primary/40 transition-all cursor-pointer">
+        <div class="flex items-center gap-5">
+            <span class="text-[#4ADE80] font-bold text-base w-5">04</span>
+            <span class="text-white font-bold text-base">Push • Pull • Legs</span>
+        </div>
+        <span class="text-gray-400 text-xs">Page 04</span>
+    </div>
+    <div class="flex items-center justify-between px-5 py-3.5 bg-[#1E2320] border border-primary/20 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-primary/40 transition-all cursor-pointer">
+        <div class="flex items-center gap-5">
+            <span class="text-[#4ADE80] font-bold text-base w-5">05</span>
+            <span class="text-white font-bold text-base">Diet Plan</span>
+        </div>
+        <span class="text-gray-400 text-xs">Page 05</span>
+    </div>
+    <div class="flex items-center justify-between px-5 py-3.5 bg-[#1E2320] border border-primary/20 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-primary/40 transition-all cursor-pointer">
+        <div class="flex items-center gap-5">
+            <span class="text-[#4ADE80] font-bold text-base w-5">06</span>
+            <span class="text-white font-bold text-base">Nutrition</span>
+        </div>
+        <span class="text-gray-400 text-xs">Page 05</span>
+    </div>
+    <div class="flex items-center justify-between px-5 py-3.5 bg-[#1E2320] border border-primary/20 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-primary/40 transition-all cursor-pointer">
+        <div class="flex items-center gap-5">
+            <span class="text-[#4ADE80] font-bold text-base w-5">07</span>
+            <span class="text-white font-bold text-base">Recovery</span>
+        </div>
+        <span class="text-gray-400 text-xs">Page 06</span>
+    </div>
+    <div class="flex items-center justify-between px-5 py-3.5 bg-[#1E2320] border border-primary/20 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-primary/40 transition-all cursor-pointer">
+        <div class="flex items-center gap-5">
+            <span class="text-[#4ADE80] font-bold text-base w-5">08</span>
+            <span class="text-white font-bold text-base">Final Tips</span>
+        </div>
+        <span class="text-gray-400 text-xs">Page 06</span>
+    </div>
 </div>
 </div>
 <!-- Bento Style Sidebar -->
-<div class="lg:col-span-2 space-y-6">
+<div class="lg:col-span-2 space-y-6 lg:sticky lg:top-32">
 <div class="glass-card p-8 rounded-2xl overflow-hidden relative">
 <div class="absolute top-0 right-0 p-4">
-<span class="material-symbols-outlined text-primary text-4xl opacity-20">verified</span>
+<span class="material-symbols-outlined text-[#4ADE80] text-4xl opacity-20">verified</span>
 </div>
-<h4 class="text-headline-md font-headline-md mb-4">Elite Support</h4>
-<p class="text-on-surface-variant text-body-md mb-6">Gain access to our private community of aesthetic-driven athletes for peer support and weekly Q&amp;As.</p>
+<h4 class="text-2xl font-bold text-white mb-4">Elite Support</h4>
+<p class="text-gray-300 mb-6">Gain access to our private community of aesthetic-driven athletes for peer support and weekly Q&amp;As.</p>
 <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-<div class="h-full bg-primary w-[85%] rounded-full shadow-[0_0_10px_rgba(75,226,119,0.4)]"></div>
+<div class="h-full bg-[#4ADE80] w-[85%] rounded-full shadow-[0_0_10px_rgba(74,222,128,0.4)]"></div>
 </div>
-<p class="mt-4 text-label-sm font-label-sm uppercase tracking-tighter text-primary">85% Success Rate Reported</p>
+<p class="mt-4 text-xs font-bold uppercase tracking-tighter text-[#4ADE80]">85% Success Rate Reported</p>
 </div>
-<div class="bg-primary p-8 rounded-2xl text-on-primary">
-<h4 class="text-headline-md font-headline-md mb-2">Buy Once, Own Forever</h4>
-<p class="font-medium opacity-90 mb-6">Receive all future editions and supplemental guides free of charge.</p>
-<button class="w-full bg-surface text-primary py-4 rounded-xl font-bold hover:bg-surface/90 transition-colors">
+<div class="bg-[#4ADE80] p-8 rounded-2xl text-black shadow-[0_0_30px_rgba(74,222,128,0.2)]">
+<h4 class="text-2xl font-black mb-2">Buy Once, Own Forever</h4>
+<p class="font-medium opacity-90 mb-6 text-black/80">Receive all future editions and supplemental guides free of charge.</p>
+<button onclick="openBuyModal()" class="w-full bg-black text-[#4ADE80] py-4 rounded-xl font-bold hover:scale-[0.98] transition-transform">
                             Claim My Access
                         </button>
 </div>
@@ -316,12 +320,12 @@
 </div>
 </section>
 <!-- Final CTA -->
-<section class="max-w-5xl mx-auto px-6 py-32 text-center">
+<section class="max-w-5xl mx-auto px-6 py-16 md:py-24 text-center">
 <h2 class="text-display-xl-mobile md:text-display-xl font-display-xl mb-8">Ready to <span class="text-primary italic">Transform?</span></h2>
 <p class="text-body-lg font-body-lg text-on-surface-variant mb-12 max-w-xl mx-auto">Stop guessing and start following a blueprint that has been refined by professionals for elite results.</p>
 <div class="relative inline-block group">
 <div class="absolute -inset-1 bg-gradient-to-r from-primary to-[#22c55e] blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-<button class="relative bg-primary text-on-primary px-16 py-6 rounded-full text-xl font-extrabold flex items-center gap-4 hover:scale-105 transition-all">
+<button onclick="openBuyModal()" class="relative bg-primary text-on-primary px-16 py-6 rounded-full text-xl font-extrabold flex items-center gap-4 hover:scale-105 transition-all">
                     GET THE BLUEPRINT NOW
                     <span class="material-symbols-outlined">download</span>
 </button>
@@ -344,7 +348,7 @@
 </main>
 <!-- Footer -->
 <footer class="bg-surface-container-lowest border-t border-white/5">
-<div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="max-w-7xl mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
 <div class="md:col-span-1">
 <a class="text-headline-sm font-headline-sm font-bold text-on-surface mb-6 block" href="index.html">
                     GAIN BLUEPRINT
@@ -408,4 +412,90 @@
             }
         });
     </script>
-</body></html>
+<!-- Buy Modal -->
+<div id="buyModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeBuyModal()"></div>
+    <!-- Modal Content -->
+    <div class="relative bg-surface border border-white/10 rounded-2xl w-full max-w-lg mx-4 overflow-hidden shadow-2xl transform transition-all">
+        <!-- Header -->
+        <div class="flex items-center justify-between p-6 border-b border-white/10">
+            <h3 class="text-xl font-bold text-white">Purchase Details</h3>
+            <button onclick="closeBuyModal()" class="text-gray-400 hover:text-white transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <!-- Form -->
+        <form onsubmit="submitBuyForm(event)" class="p-6 space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+                <input type="text" id="buyName" required class="w-full bg-[#1E2320] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors" placeholder="Your Name">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">Mobile Number</label>
+                <input type="tel" id="buyPhone" required class="w-full bg-[#1E2320] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors" placeholder="Your Mobile Number">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
+                <input type="email" id="buyEmail" required class="w-full bg-[#1E2320] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors" placeholder="you@example.com">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">What are you looking for?</label>
+                <textarea id="buyQuery" required rows="3" class="w-full bg-[#1E2320] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors" placeholder="I want to purchase the Lean Gain Blueprint..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary text-black font-bold text-lg py-4 rounded-xl hover:scale-[0.98] transition-transform flex items-center justify-center gap-2 mt-2 shadow-[0_0_20px_rgba(75,226,119,0.3)]">
+                Continue to WhatsApp
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openBuyModal() {
+        const modal = document.getElementById('buyModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+    
+    function closeBuyModal() {
+        const modal = document.getElementById('buyModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+
+    function submitBuyForm(e) {
+        e.preventDefault();
+        const name = document.getElementById('buyName').value;
+        const phone = document.getElementById('buyPhone').value;
+        const email = document.getElementById('buyEmail').value;
+        const query = document.getElementById('buyQuery').value;
+        
+        const message = `Hi Coach, I want to purchase the Lean Gain Blueprint.\n\n*Name:* ${name}\n*Mobile:* ${phone}\n*Email:* ${email}\n*Query:* ${query}`;
+        
+        const encodedMessage = encodeURIComponent(message);
+        const waLink = `https://wa.me/6282253984?text=${encodedMessage}`;
+        
+        window.open(waLink, '_blank');
+        closeBuyModal();
+    }
+</script>
+<script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                this.innerHTML = '<span class="material-symbols-outlined">close</span>';
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                this.innerHTML = '<span class="material-symbols-outlined">menu</span>';
+            }
+        });
+    }
+</script>
+</body>
+</html>
