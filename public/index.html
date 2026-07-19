@@ -63,6 +63,15 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
+        @keyframes slideFadeRight {
+            0% { opacity: 0; transform: translateX(-30px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideFadeLeft {
+            0% { opacity: 0; transform: translateX(30px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -198,6 +207,13 @@
     </script>
 </head>
 <body class="bg-background selection:bg-primary selection:text-on-primary-fixed">
+<!-- Preloader -->
+<div id="preloader" class="fixed inset-0 z-[9999] bg-background flex items-center justify-center transition-opacity duration-1000 ease-in-out">
+    <div class="text-4xl md:text-6xl font-headline-md font-extrabold tracking-tighter text-on-surface flex items-center overflow-hidden">
+        <span class="opacity-0" style="animation: slideFadeRight 0.8s ease-out forwards;">GAIN</span>
+        <span class="text-primary opacity-0" style="animation: slideFadeLeft 0.8s ease-out 0.2s forwards;">BLUEPRINT</span>
+    </div>
+</div>
 <!-- Navigation Shell -->
 <nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-2xl">
 <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
@@ -530,5 +546,19 @@
             }
         });
     }
+</script>
+<script>
+    // Preloader Logic
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 1000); 
+            }, 1200); 
+        }
+    });
 </script>
 </body></html>
