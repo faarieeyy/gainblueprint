@@ -148,30 +148,6 @@
 </head>
 
 <body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="fixed inset-0 z-[100] bg-black flex items-center justify-center transition-opacity duration-1000 pointer-events-none">
-        <style>
-            @keyframes sideFadeIn {
-                0% { opacity: 0; transform: translateX(-50px); letter-spacing: 0.5em; filter: blur(10px); }
-                100% { opacity: 1; transform: translateX(0); letter-spacing: 0.1em; filter: blur(0); }
-            }
-            .animate-side-fade {
-                animation: sideFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            }
-        </style>
-        <div class="text-2xl md:text-4xl font-headline-md font-extrabold uppercase animate-side-fade text-white">
-            Gain <span class="text-primary">Blueprint</span>
-        </div>
-    </div>
-    <script>
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loading-screen');
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                setTimeout(() => loader.remove(), 1000);
-            }, 1800);
-        });
-    </script>
     <!-- TopNavBar -->
     <header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-2xl">
         <nav class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
