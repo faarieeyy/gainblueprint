@@ -189,63 +189,34 @@
     </header>
     <main class="pt-24">
         <!-- Hero Section -->
-        <section class="relative min-h-[90vh] flex flex-col justify-end pb-20 pt-32 overflow-hidden">
-            <!-- Background Split Image -->
-            <div class="absolute inset-0 z-0 flex">
-                <!-- BEFORE Side (Left) -->
-                <div class="w-1/2 h-full relative overflow-hidden">
-                     <!-- Left image (placeholder, using existing image but styled grayscale) -->
-                     <img class="w-full h-full object-cover object-left grayscale brightness-75" alt="Before" 
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnNBJ-AMRO9o8WNSHEgUsjX208oFD9Bv06JlarepB-WQHCNUsJ-xAbNxJyyt5ckeNnbHhY_ivEauwcxNpYNdqi-no2YMBUNqB4H5woxPlul2aKHiAwtCTiV1V4WEtAJxmnzQdn-vQQoVm2sXNN7B6ltJmwpNvppfSuHa0XZ8u7M8RxqW3lIHpvcL7i_-bJomb0Ywz3n2iRdPueWN4Xwn0iwgRrzrDIHjIk818zFYToy96TtL2uIooNfkhfL-u9S_zwgJgBRe4-pps" />
-                     <div class="absolute inset-0 bg-black/30"></div>
-                     <!-- Background text -->
-                     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 text-transparent font-display-xl text-[80px] md:text-[180px] tracking-tighter pointer-events-none font-bold z-0" style="-webkit-text-stroke: 1px rgba(255,255,255,0.1);">
-                         BEFORE
-                     </div>
+        <section class="relative h-[921px] flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10">
                 </div>
-                
-                <!-- AFTER Side (Right) -->
-                <div class="w-1/2 h-full relative overflow-hidden">
-                     <img class="w-full h-full object-cover object-right brightness-90" alt="After" 
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnNBJ-AMRO9o8WNSHEgUsjX208oFD9Bv06JlarepB-WQHCNUsJ-xAbNxJyyt5ckeNnbHhY_ivEauwcxNpYNdqi-no2YMBUNqB4H5woxPlul2aKHiAwtCTiV1V4WEtAJxmnzQdn-vQQoVm2sXNN7B6ltJmwpNvppfSuHa0XZ8u7M8RxqW3lIHpvcL7i_-bJomb0Ywz3n2iRdPueWN4Xwn0iwgRrzrDIHjIk818zFYToy96TtL2uIooNfkhfL-u9S_zwgJgBRe4-pps" />
-                     <div class="absolute inset-0 bg-black/20"></div>
-                     <!-- Background text -->
-                     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 text-transparent font-display-xl text-[80px] md:text-[180px] tracking-tighter pointer-events-none font-bold z-0" style="-webkit-text-stroke: 1px rgba(255,255,255,0.1);">
-                         AFTER
-                     </div>
-                </div>
-                
-                <!-- Glowing center line -->
-                <div class="absolute left-1/2 top-0 bottom-0 w-px bg-primary -translate-x-1/2 shadow-[0_0_15px_3px_rgba(75,226,119,0.5)] z-10"></div>
-                
-                <!-- Bottom gradient for text readability -->
-                <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10"></div>
+                <img class="w-full h-full object-cover" alt="Fitness transformation cinematic photograph"
+                    src="assets/images/journey-bg.png" />
             </div>
+            <div class="relative z-20 max-w-7xl mx-auto px-6 w-full -mt-20 md:-mt-32">
+                <div class="max-w-2xl">
+                    <span class="text-primary font-label-sm text-label-sm uppercase tracking-widest mb-4 block">THE
+                        JOURNEY BEHIND THE BLUEPRINT</span>
+                    <h1
+                        class="text-display-xl-mobile md:text-[52px] font-display-xl text-on-surface leading-tight mb-6">
+                        My <span class="text-primary">Transformation</span> Journey</h1>
 
-            <!-- Content -->
-            <div class="relative z-20 max-w-4xl mx-auto px-6 w-full text-center flex flex-col items-center mt-auto pb-10">
-                <span class="text-primary font-bold text-sm uppercase tracking-widest mb-4 block">THE JOURNEY BEHIND THE BLUEPRINT</span>
-                
-                <h1 class="text-5xl md:text-[72px] font-display-xl text-white leading-[1.1] mb-6 font-bold tracking-tight">
-                    My Transformation<br/>
-                    <span class="text-primary text-[1.1em]">Journey</span>
-                </h1>
-                
-                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-lg mx-auto font-medium">
-                    Real progress. Real results.<br/>
-                    No shortcuts. Just discipline and consistency.
-                </p>
-
-                <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-                    <a href="#journey"
-                        class="bg-primary text-black px-10 py-4 rounded-lg font-bold transition-all hover:scale-105 text-center flex items-center justify-center">
-                        View My Journey
-                    </a>
-                    <a href="ebook.html"
-                        class="px-10 py-4 rounded-lg font-bold border border-primary text-white hover:bg-primary/10 transition-all text-center flex items-center justify-center">
-                        The Blueprint
-                    </a>
+                    <div class="flex gap-4">
+                        <a href="#journey"
+                            class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold transition-all hover:scale-105 text-center flex items-center justify-center">View
+                            My Journey</a>
+                        <a href="ebook.html"
+                            class="glass-card px-8 py-4 rounded-full font-bold border border-white/10 hover:bg-white/5 transition-all text-center flex items-center justify-center">The
+                            Blueprint</a>
+                    </div>
                 </div>
+            </div>
+            <!-- Decorative Glow -->
+            <div
+                class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -mr-64 -mb-64">
             </div>
         </section>
         <!-- Biography Section -->
