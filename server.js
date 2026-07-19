@@ -54,10 +54,14 @@ app.use((req, res, next) => {
 });
 
 // Start Server
-app.listen(PORT, () => {
-    console.log(`\n================================`);
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
-    console.log(`🔒 Admin Phone: ${process.env.ADMIN_PHONE}`);
-    console.log(`🔑 Admin PIN:   ${process.env.ADMIN_PIN}`);
-    console.log(`================================\n`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`\n================================`);
+        console.log(`🚀 Server running on http://localhost:${PORT}`);
+        console.log(`🔒 Admin Phone: ${process.env.ADMIN_PHONE}`);
+        console.log(`🔑 Admin PIN:   ${process.env.ADMIN_PIN}`);
+        console.log(`================================\n`);
+    });
+}
+
+module.exports = app;
