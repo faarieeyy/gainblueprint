@@ -148,6 +148,30 @@
 </head>
 
 <body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 z-[100] bg-black flex items-center justify-center transition-opacity duration-1000 pointer-events-none">
+        <style>
+            @keyframes sideFadeIn {
+                0% { opacity: 0; transform: translateX(-50px); letter-spacing: 0.5em; filter: blur(10px); }
+                100% { opacity: 1; transform: translateX(0); letter-spacing: 0.1em; filter: blur(0); }
+            }
+            .animate-side-fade {
+                animation: sideFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+        </style>
+        <div class="text-2xl md:text-4xl font-headline-md font-extrabold uppercase animate-side-fade text-white">
+            Gain <span class="text-primary">Blueprint</span>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loading-screen');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.remove(), 1000);
+            }, 1800);
+        });
+    </script>
     <!-- TopNavBar -->
     <header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-2xl">
         <nav class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
@@ -194,7 +218,7 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10">
                 </div>
                 <img class="w-full h-full object-cover" alt="Fitness transformation cinematic photograph"
-                    src="assets/images/journey-bg.png" />
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnNBJ-AMRO9o8WNSHEgUsjX208oFD9Bv06JlarepB-WQHCNUsJ-xAbNxJyyt5ckeNnbHhY_ivEauwcxNpYNdqi-no2YMBUNqB4H5woxPlul2aKHiAwtCTiV1V4WEtAJxmnzQdn-vQQoVm2sXNN7B6ltJmwpNvppfSuHa0XZ8u7M8RxqW3lIHpvcL7i_-bJomb0Ywz3n2iRdPueWN4Xwn0iwgRrzrDIHjIk818zFYToy96TtL2uIooNfkhfL-u9S_zwgJgBRe4-pps" />
             </div>
             <div class="relative z-20 max-w-7xl mx-auto px-6 w-full -mt-20 md:-mt-32">
                 <div class="max-w-2xl">
