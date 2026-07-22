@@ -1,0 +1,92 @@
+
+import { NextResponse } from 'next/server';
+import bcrypt from 'bcryptjs';
+import { v4 as uuidv4 } from 'uuid';
+import db from '../../../../db/db';
+import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
+
+function generateFingerprint(req) {
+    const userAgent = req.headers.get('user-agent') || '';
+    const acceptLang = req.headers.get('accept-language') || '';
+    const ip = req.headers.get('x-forwarded-for') || '127.0.0.1';
+    return crypto.createHash('sha256').update(`${userAgent}-${acceptLang}-${ip}`).digest('hex');
+}
+
+export async function POST(req) {
+    try {
+        const body = await req.json();
+        let { phone, otp } = body;
+        if (!phone || !otp) return NextResponse.json({ success: false, message: 'Phone and OTP are required' }, { status: 400 });
+        
+        phone = phone.replace(/\D/g, '');
+
+        const otpRecord = db.getOTP(phone);
+        if (!otpRecord) return NextResponse.json({ success: false, message: 'OTP expired or invalid.' }, { status: 400 });
+
+        if (Date.now() > otpRecord.expiry) {
+            db.deleteOTP(phone);
+            return NextResponse.json({ success: false, message: 'OTP expired. Please request a new one.' }, { status: 400 });
+        }
+
+        otpRecord.attempts += 1;
+        if (otpRecord.attempts > parseInt(process.env.MAX_OTP_ATTEMPTS || '5')) {
+            db.deleteOTP(phone);
+            return NextResponse.json({ success: false, message: 'Too many failed attempts. Please request a new OTP.' }, { status: 429 });
+        }
+        db.setOTP(phone, otpRecord); 
+
+        const isMatch = await bcrypt.compare(otp.toString(), otpRecord.hash);
+        if (!isMatch) return NextResponse.json({ success: false, message: 'Invalid OTP.' }, { status: 400 });
+
+        db.deleteOTP(phone);
+
+        const user = db.findUser(u => u.phone === phone);
+        if (!user) return NextResponse.json({ success: false, message: 'User not found.' }, { status: 404 });
+
+        const sessionId = uuidv4();
+        const deviceFP = generateFingerprint(req);
+        const deviceInfo = req.headers.get('user-agent') || 'Unknown Device';
+
+        const currentSession = db.getSession(user.id);
+        const isNewDevice = currentSession && currentSession.deviceFP !== deviceFP;
+
+        db.setSession(user.id, {
+            sessionId,
+            deviceFP,
+            deviceInfo,
+            ip: req.headers.get('x-forwarded-for') || '127.0.0.1',
+            loginTime: new Date().toISOString()
+        });
+
+        db.updateUser(user.id, {
+            lastLogin: new Date().toISOString(),
+            lastDevice: deviceInfo
+        });
+
+        const token = jwt.sign(
+            { userId: user.id, sessionId },
+            process.env.JWT_SECRET,
+            { expiresIn: (process.env.SESSION_DURATION_HOURS || '24') + 'h' }
+        );
+
+        const res = NextResponse.json({ 
+            success: true, 
+            redirect: '/dashboard',
+            message: isNewDevice ? 'Logged in. Your previous session on another device was ended.' : 'Logged in successfully.'
+        });
+        
+        res.cookies.set('token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: parseInt(process.env.SESSION_DURATION_HOURS || '24') * 60 * 60
+        });
+
+        return res;
+
+    } catch (err) {
+        console.error(err);
+        return NextResponse.json({ success: false, message: 'Server error' }, { status: 500 });
+    }
+}
